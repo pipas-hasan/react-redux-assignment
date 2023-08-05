@@ -1,6 +1,9 @@
-import React from "react";
+import { useSelector } from "react-redux";
 
 const TodoList = () => {
+ 
+    const todoItem = useSelector((state)=> state.todo.value)
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -15,16 +18,22 @@ const TodoList = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Task Name</td>
-                <td>
-                  <button className="btn btn-dark">Edit</button>
-                </td>
-                <td>
-                  <button className="btn btn-danger">Remove</button>
-                </td>
-              </tr>
+                {
+                    todoItem.map((item, i)=> {
+                       return (
+                         <tr key={i.toString()}>
+                           <td>{i}</td>
+                           <td>{item}</td>
+                           <td>
+                             <button className="btn btn-dark">Edit</button>
+                           </td>
+                           <td>
+                             <button className="btn btn-danger">Remove</button>
+                           </td>
+                         </tr>
+                       );
+                    })
+                }
             </tbody>
           </table>
         </div>

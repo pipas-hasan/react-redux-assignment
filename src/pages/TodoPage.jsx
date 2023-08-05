@@ -1,6 +1,7 @@
 import React from "react";
 import CreateTodo from "../components/todo/CreateTodo";
 import TodoList from "../components/todo/TodoList";
+import { AddTodo } from "../redux/state/todo/TodoSlice";
 
 const TodoPage = () => {
   return (
